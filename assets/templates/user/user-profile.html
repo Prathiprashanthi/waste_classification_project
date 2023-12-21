@@ -1,0 +1,760 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Waste Classification</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+         <!-- Libraries Stylesheet -->
+         <link href="{% static 'user/lib/animate/animate.min.css' %}" rel="stylesheet">
+         <link href="{% static 'user/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+ 
+         <!-- Customized Bootstrap Stylesheet -->
+         <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+ 
+         <!-- Template Stylesheet -->
+         <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+         <style>
+            .profile-nav, .profile-info{
+                margin-top:30px;   
+            }
+            
+            .profile-nav .user-heading {
+                background: #fff;
+                color: #fff;
+                border-radius: 4px 4px 0 0;
+                -webkit-border-radius: 4px 4px 0 0;
+                padding: 30px;
+                text-align: center;
+                
+            }
+            
+            .profile-nav .user-heading.round a  {
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border: 10px solid rgba(255,255,255,0.3);
+                display: inline-block;
+            }
+            
+            .profile-nav .user-heading a img {
+                width: 112px;
+                height: 112px;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+            }
+            
+            .profile-nav .user-heading h1 {
+                font-size: 22px;
+                font-weight: 300;
+                margin-bottom: 5px;
+            }
+            
+            .profile-nav .user-heading p {
+                font-size: 12px;
+            }
+            
+            .profile-nav ul {
+                margin-top: 1px;
+            }
+            
+            .profile-nav ul > li {
+                border-bottom: 1px solid #ebeae6;
+                margin-top: 0;
+                line-height: 30px;
+            }
+            
+            .profile-nav ul > li:last-child {
+                border-bottom: none;
+            }
+            
+            .profile-nav ul > li > a {
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                color: #89817f;
+                border-left: 5px solid #fff;
+            }
+            
+            .profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
+                background: #fdf001 !important;
+                border-left: 5px solid #fbc02d;
+                color: #89817f !important;
+            }
+            
+            .profile-nav ul > li:last-child > a:last-child {
+                border-radius: 0 0 4px 4px;
+                -webkit-border-radius: 0 0 4px 4px;
+            }
+            
+            .profile-nav ul > li > a > i{
+                font-size: 16px;
+                padding-right: 10px;
+                color: #bcb3aa;
+            }
+            
+            .r-activity {
+                margin: 6px 0 0;
+                font-size: 12px;
+            }
+            
+            
+            .p-text-area, .p-text-area:focus {
+                border: none;
+                font-weight: 300;
+                box-shadow: none;
+                color: #c3c3c3;
+                font-size: 16px;
+            }
+            
+            .profile-info .panel-footer {
+                background-color:#fdf001 ;
+                border-top: 1px solid #e7ebee;
+            }
+            
+            .profile-info .panel-footer ul li a {
+                color: #7a7a7a;
+            }
+            
+            .bio-graph-heading {
+                background: #fdf001;
+                color: #fff;
+                text-align: center;
+                font-style: italic;
+                padding: 40px 110px;
+                border-radius: 4px 4px 0 0;
+                -webkit-border-radius: 4px 4px 0 0;
+                font-size: 16px;
+                font-weight: 300;
+            }
+            
+            .bio-graph-info {
+                color: #89817e;
+            }
+            
+            .bio-graph-info h1 {
+                font-size: 22px;
+                font-weight: 300;
+                margin: 0 0 20px;
+            }
+            
+            .bio-row {
+                width: 50%;
+                float: left;
+                margin-bottom: 10px;
+                padding:0 15px;
+            }
+            
+            .bio-row p span {
+                width: 100px;
+                display: inline-block;
+            }
+            
+            .bio-chart, .bio-desk {
+                float: left;
+            }
+            
+            .bio-chart {
+                width: 40%;
+            }
+            
+            .bio-desk {
+                width: 60%;
+            }
+            
+            .bio-desk h4 {
+                font-size: 15px;
+                font-weight:400;
+            }
+            
+            .bio-desk h4.terques {
+                color: #4CC5CD;
+            }
+            
+            .bio-desk h4.red {
+                color: #e26b7f;
+            }
+            
+            .bio-desk h4.green {
+                color: #97be4b;
+            }
+            
+            .bio-desk h4.purple {
+                color: #caa3da;
+            }
+            
+            .file-pos {
+                margin: 6px 0 10px 0;
+            }
+            
+            .profile-activity h5 {
+                font-weight: 300;
+                margin-top: 0;
+                color: #c3c3c3;
+            }
+            
+            .summary-head {
+                background: #ee7272;
+                color: #fff;
+                text-align: center;
+                border-bottom: 1px solid #ee7272;
+            }
+            
+            .summary-head h4 {
+                font-weight: 300;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            
+            .summary-head p {
+                color: rgba(255,255,255,0.6);
+            }
+            
+            ul.summary-list {
+                display: inline-block;
+                padding-left:0 ;
+                width: 100%;
+                margin-bottom: 0;
+            }
+            
+            ul.summary-list > li {
+                display: inline-block;
+                width: 19.5%;
+                text-align: center;
+            }
+            
+            ul.summary-list > li > a > i {
+                display:block;
+                font-size: 18px;
+                padding-bottom: 5px;
+            }
+            
+            ul.summary-list > li > a {
+                padding: 10px 0;
+                display: inline-block;
+                color: #818181;
+            }
+            
+            ul.summary-list > li  {
+                border-right: 1px solid #eaeaea;
+            }
+            
+            ul.summary-list > li:last-child  {
+                border-right: none;
+            }
+            
+            .activity {
+                width: 100%;
+                float: left;
+                margin-bottom: 10px;
+            }
+            
+            .activity.alt {
+                width: 100%;
+                float: right;
+                margin-bottom: 10px;
+            }
+            
+            .activity span {
+                float: left;
+            }
+            
+            .activity.alt span {
+                float: right;
+            }
+            .activity span, .activity.alt span {
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                background: #eee;
+                text-align: center;
+                color: #fff;
+                font-size: 16px;
+            }
+            
+            .activity.terques span {
+                background: #8dd7d6;
+            }
+            
+            .activity.terques h4 {
+                color: #8dd7d6;
+            }
+            .activity.purple span {
+                background: #b984dc;
+            }
+            
+            .activity.purple h4 {
+                color: #b984dc;
+            }
+            .activity.blue span {
+                background: #90b4e6;
+            }
+            
+            .activity.blue h4 {
+                color: #90b4e6;
+            }
+            .activity.green span {
+                background: #aec785;
+            }
+            
+            .activity.green h4 {
+                color: #aec785;
+            }
+            
+            .activity h4 {
+                margin-top:0 ;
+                font-size: 16px;
+            }
+            
+            .activity p {
+                margin-bottom: 0;
+                font-size: 13px;
+            }
+            
+            .activity .activity-desk i, .activity.alt .activity-desk i {
+                float: left;
+                font-size: 18px;
+                margin-right: 10px;
+                color: #bebebe;
+            }
+            
+            .activity .activity-desk {
+                margin-left: 70px;
+                position: relative;
+            }
+            
+            .activity.alt .activity-desk {
+                margin-right: 70px;
+                position: relative;
+            }
+            
+            .activity.alt .activity-desk .panel {
+                float: right;
+                position: relative;
+            }
+            
+            .activity-desk .panel {
+                background: #F4F4F4 ;
+                display: inline-block;
+            }
+            
+            
+            .activity .activity-desk .arrow {
+                border-right: 8px solid #F4F4F4 !important;
+            }
+            .activity .activity-desk .arrow {
+                border-bottom: 8px solid transparent;
+                border-top: 8px solid transparent;
+                display: block;
+                height: 0;
+                left: -7px;
+                position: absolute;
+                top: 13px;
+                width: 0;
+            }
+            
+            .activity-desk .arrow-alt {
+                border-left: 8px solid #F4F4F4 !important;
+            }
+            
+            .activity-desk .arrow-alt {
+                border-bottom: 8px solid transparent;
+                border-top: 8px solid transparent;
+                display: block;
+                height: 0;
+                right: -7px;
+                position: absolute;
+                top: 13px;
+                width: 0;
+            }
+            
+            .activity-desk .album {
+                display: inline-block;
+                margin-top: 10px;
+            }
+            
+            .activity-desk .album a{
+                margin-right: 10px;
+            }
+            
+            .activity-desk .album a:last-child{
+                margin-right: 0px;
+            }
+            .custom-btn {
+                cursor: pointer;
+                padding: 8px 16px;
+                border-radius: 4px;
+                background: #fdf001;
+                color: #fff;
+            }
+            .black-text {
+                color: black;
+            }
+         </style>
+    </head>
+
+    <body>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Topbar Start -->
+        <div class="container-fluid topbar-top bg-primary">
+            <div class="container">
+                <div class="d-flex justify-content-between topbar py-2">
+                    <div class="d-flex align-items-center flex-shrink-0 topbar-info">
+                        <a href="#" class="me-4 text-secondary"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Our location
+                            Hyderabad</a>
+                        <a href="#" class="me-4 text-secondary"><i class="fas fa-phone-alt me-2 text-dark"></i>+91 8555 8879 86</a>
+                        <a href="#" class="text-secondary"><i class="fas fa-envelope me-2 text-dark"></i>info@codebook.in</a>
+                    </div>
+                    <div class="text-end pe-4 me-4 border-end border-dark search-btn">
+                        <div class="search-form">
+                            <form method="post" action="index.html">
+                                <div class="form-group">
+                                    <div class="d-flex">
+                                        <input type="search" class="form-control border-0 rounded-pill" name="search-input" value="" placeholder="Search Here" required=""/>
+                                        <button type="submit" value="Search Now!" class="btn"><i class="fa fa-search text-dark"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center topbar-icon">
+                        <a href="#" class="me-4"><i class="fab fa-facebook-f text-dark"></i></a>
+                        <a href="#" class="me-4"><i class="fab fa-twitter text-dark"></i></a>
+                        <a href="#" class="me-4"><i class="fab fa-instagram text-dark"></i></a>
+                        <a href="#" class=""><i class="fab fa-linkedin-in text-dark"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid bg-dark">
+            <div class="container">
+                <nav class="navbar navbar-dark navbar-expand-lg py-lg-0">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="text-primary mb-0 display-5">Waste<span class="text-white">Classification</span><i class="fas fa-trash text-primary ms-2"></i></h1>
+                    </a>
+                    <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-dark"></span>
+                    </button>
+                    <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto">
+                            <a href="{% url 'user_dashboard' %}" class="nav-item nav-link active">Dashboard</a>
+                            <a href="{% url 'user_predict' %}" class="nav-item nav-link">Waste Prediction</a>
+                            <a href="{% url 'user_profile' %}" class="nav-item nav-link">Profile</a>
+                            <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
+                            <a href="{% url 'user_login' %}" class="nav-item nav-link">Logout</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        <div class="container bootstrap snippets bootdey">
+            <div class="row">
+                <form method='post' enctype='multipart/form-data' id="form" name='myForm' class ="d-flex">
+                    {% csrf_token %}
+                    <div class="profile-nav col-md-3">
+                        <div class="panel">
+                            <div class="user-heading round">
+                                <a href="#">
+                                    <img src="/media/{{i.Image}}" alt="">
+                                </a>
+                                <h1>{{i.Full_name}}</h1>
+                                <p class="black-text">{{ i.Email }}</p>
+                            </div>
+                    
+                            <ul class="nav nav-pills nav-stacked">
+                                <div class="row">
+                                    <div class="col-md-6 text-center">
+                                        <label for="file-upload" class="btn btn-primary custom-btn">
+                                            Update Photo
+                                        </label>
+                                        <input id="file-upload" type="file" name='pic' style="display: none;">
+                                        <span id="file-chosen"></span>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profile-info col-md-9">
+                        <div class="panel">
+                            <div class="bio-graph-heading">
+                                Profile.
+                            </div>
+                            <div class="panel-body bio-graph-info">
+                                <h1>User</h1>
+                                <div class="row">
+                                    <div class="bio-row">
+                                        <label for="firstName">Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstname"
+                                        value="{{i.Full_name}}" placeholder="Enter Name">
+                                    </div>
+                                    <div class="bio-row">
+                                        <label for="firstName">Age</label>
+                                        <input type="number" class="form-control" id="age" name="age" value="{{i.Age}}"
+                                        placeholder="Enter Age">
+                                    </div>
+                                    <div class="bio-row">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            value="{{i.Email}}" placeholder="Enter Email">
+                                    </div>
+                                    <div class="bio-row">
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" value="{{i.Phone_Number}}"
+                                            placeholder="Enter Phone">
+                                    </div>
+                                    <div class="bio-row">
+                                        <label for="city">Password</label>
+                                        <input type="text" class="form-control" id="password" name="password" value="{{i.Password}}"
+                                            placeholder="Enter Password">
+                                    </div>
+                                    <div class="bio-row">
+                                        <label for="age">Address</label>
+                                        <input type="address" class="form-control" id="address" name="address" value="{{i.Address}}"
+                                            placeholder="Enter Addresse">
+                                    </div>
+                                    <div class="form-row" style="padding-left:450px;padding-top:30px;">
+                                        <button type="submit" class="btn custom-btn">Submit</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+         <!-- Team Start -->
+         <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
+                    <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Team</h5>
+                    <h1 class="display-5 w-50 mx-auto">Our Team Members</h1>
+                </div>
+                <div class="row g-5">
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-1..jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-2.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".7s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-3.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".9s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-4.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+ <!-- Footer Start -->
+ <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay=".3s">
+    <div class="container py-5">
+        <div class="row g-4 footer-inner">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">About WasteKit.</h4>
+                    <p>Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                    <p class="mb-0"><a class="" href="#">WasteKit </a> &copy; 2023 All Right Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Usefull Link</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>About Us</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Contact Us</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Our Services</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Terms & Condition</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Services Link</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Apartment Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Office Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Car Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Green Waste</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Contact Us</h4>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 pb-3 border-bottom rounded-0"><i class="fa fa-map-marker-alt me-3"></i>Our location
+                        Hyderabad</a>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-phone-alt me-3"></i>+91 8555 8879 86</a>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-envelope me-3"></i>info@codebook.in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                <a href="#" class="text-primary mb-0 display-6">Waste<span class="text-white">classification</span><i class="fa fa-trash text-primary ms-2"></i></a>
+            </div>
+            <div class="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-md-4 my-auto text-center text-md-end text-white">
+                <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                Distributed By Codebook.in
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary rounded-circle border-3 back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'user/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'user/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'user/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'user/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'user/js/main.js' %}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+         {% if messages %}
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <script>swal({
+                            title: "Success!",
+                            text: "{{message}}",
+                            icon: "success",
+                            button: "OK",
+                        });
+                    </script>
+                
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                    <script>swal({
+                            title: "Warning :)",
+                            text: "{{message}}",
+                            icon: "warning",
+                            button: "OK",
+                        
+                        });
+                    </script>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <script>swal({
+                            title: "info :)",
+                            text: "{{message}}",
+                            icon: "info",
+                            button: "OK",
+                        });
+                    </script>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <script>swal({
+                            title: "error :)",
+                            text: "{{message}}",
+                            icon: "error",
+                            button: "OK",
+                        });
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+</body>
+
+</html>

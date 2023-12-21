@@ -1,0 +1,481 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Waste Classification</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+         <!-- Libraries Stylesheet -->
+         <link href="{% static 'user/lib/animate/animate.min.css' %}" rel="stylesheet">
+         <link href="{% static 'user/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+ 
+         <!-- Customized Bootstrap Stylesheet -->
+         <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+ 
+         <!-- Template Stylesheet -->
+         <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+         <style>
+            @import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('{% static 'user/img/fig10.jpg'%}');
+background-size: cover;
+background-repeat: no-repeat;
+height: 900px;
+font-family: 'Numans', sans-serif;
+}
+
+
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FDF001;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FDF001;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FDF001;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+         </style>
+    </head>
+
+    <body>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Topbar Start -->
+        <div class="container-fluid topbar-top bg-primary">
+            <div class="container">
+                <div class="d-flex justify-content-between topbar py-2">
+                    <div class="d-flex align-items-center flex-shrink-0 topbar-info">
+                        <a href="#" class="me-4 text-secondary"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Our location
+                            Hyderabad</a>
+                        <a href="#" class="me-4 text-secondary"><i class="fas fa-phone-alt me-2 text-dark"></i>+91 8555 8879 86</a>
+                        <a href="#" class="text-secondary"><i class="fas fa-envelope me-2 text-dark"></i>info@codebook.in</a>
+                    </div>
+                    <div class="text-end pe-4 me-4 border-end border-dark search-btn">
+                        <div class="search-form">
+                            <form method="post" action="index.html">
+                                <div class="form-group">
+                                    <div class="d-flex">
+                                        <input type="search" class="form-control border-0 rounded-pill" name="search-input" value="" placeholder="Search Here" required=""/>
+                                        <button type="submit" value="Search Now!" class="btn"><i class="fa fa-search text-dark"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center topbar-icon">
+                        <a href="#" class="me-4"><i class="fab fa-facebook-f text-dark"></i></a>
+                        <a href="#" class="me-4"><i class="fab fa-twitter text-dark"></i></a>
+                        <a href="#" class="me-4"><i class="fab fa-instagram text-dark"></i></a>
+                        <a href="#" class=""><i class="fab fa-linkedin-in text-dark"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid bg-dark">
+            <div class="container">
+                <nav class="navbar navbar-dark navbar-expand-lg py-lg-0">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="text-primary mb-0 display-5">Waste<span class="text-white">Classification</span><i class="fas fa-trash text-primary ms-2"></i></h1>
+                    </a>
+                    <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-dark"></span>
+                    </button>
+                    <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto">
+                            <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                            <a href="{% url 'user_login' %}" class="nav-item nav-link">User</a>
+                            <a href="{% url 'admin_login' %}" class="nav-item nav-link">Admin</a>
+                            <a href="{% url 'about_us' %}" class="nav-item nav-link">About</a>
+                            <a href="{% url 'contact_us' %}" class="nav-item nav-link">Contact</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header py-5">
+            <div class="container text-center py-5">
+                <h1 class="display-2 text-white mb-4 animated slideInDown">User</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>User-login</h3>
+                        <div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method='post' enctype='multipart/form-data'>
+                            {% csrf_token %}
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control"name="email" placeholder="username">
+                                
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                            <div class="row align-items-center remember">
+                                <input type="checkbox">Remember Me
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn float-right login_btn">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Don't have an account?<a href="{% url 'register' %}">Sign Up</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="{% url 'forgot_pwd' %}">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Call To Action Start -->
+        <div class="container-fluid py-5 call-to-action wow fadeInUp" data-wow-delay=".3s" style="margin: 6rem 0;">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <img src="{% static 'user/img/fig2.jpg' %}" class="img-fluid w-100 rounded-circle p-5" alt="">
+                    </div>
+                    <div class="col-lg-6 my-auto">
+                        <div class="text-start mt-4">
+                            <h1 class="pb-4 text-white">Sign Up To Our Newsletter To Get The Latest Offers</h1>
+                        </div>
+                        <form method="post" action="index.html">
+                            <div class="form-group">
+                                <div class="d-flex call-btn">
+                                    <input type="search" class="form-control py-3 px-4 w-100 border-0 rounded-0 rounded-end rounded-pill" name="search-input" value="" placeholder="Enter Your Email Address" required="Please enter a valid email"/>
+                                    <button type="email" value="Search Now!" class="btn btn-primary border-0 rounded-pill rounded rounded-start px-5">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>  
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- Call To Action End -->
+
+
+         <!-- Team Start -->
+         <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
+                    <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Team</h5>
+                    <h1 class="display-5 w-50 mx-auto">Our Team Members</h1>
+                </div>
+                <div class="row g-5">
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-1..jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-2.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".7s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-3.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".9s">
+                        <div class="rounded team-item">
+                            <img src="{% static 'user/img/team-4.jpg' %}" class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                            <div class="team-content bg-primary text-dark text-center py-3">
+                                <span class="fs-4 fw-bold">Full Name</span>
+                                <p class="text-muted mb-0">Designation</p>
+                            </div>
+                            <div class="team-icon d-flex flex-column ">
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+ <!-- Footer Start -->
+ <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay=".3s">
+    <div class="container py-5">
+        <div class="row g-4 footer-inner">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">About WasteKit.</h4>
+                    <p>Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                    <p class="mb-0"><a class="" href="#">WasteKit </a> &copy; 2023 All Right Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Usefull Link</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>About Us</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Contact Us</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Our Services</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Terms & Condition</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Services Link</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Apartment Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Office Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Car Waste</a>
+                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Green Waste</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white fw-bold mb-4">Contact Us</h4>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 pb-3 border-bottom rounded-0"><i class="fa fa-map-marker-alt me-3"></i>Our location
+                        Hyderabad</a>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-phone-alt me-3"></i>+91 8555 8879 86</a>
+                    <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-envelope me-3"></i>info@codebook.in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                <a href="#" class="text-primary mb-0 display-6">Waste<span class="text-white">classification</span><i class="fa fa-trash text-primary ms-2"></i></a>
+            </div>
+            <div class="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-md-4 my-auto text-center text-md-end text-white">
+                <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                Distributed By Codebook.in
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary rounded-circle border-3 back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'user/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'user/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'user/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'user/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'user/js/main.js' %}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+         {% if messages %}
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <script>swal({
+                            title: "Success!",
+                            text: "{{message}}",
+                            icon: "success",
+                            button: "OK",
+                        });
+                    </script>
+                
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                    <script>swal({
+                            title: "Warning :)",
+                            text: "{{message}}",
+                            icon: "warning",
+                            button: "OK",
+                        
+                        });
+                    </script>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <script>swal({
+                            title: "info :)",
+                            text: "{{message}}",
+                            icon: "info",
+                            button: "OK",
+                        });
+                    </script>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <script>swal({
+                            title: "error :)",
+                            text: "{{message}}",
+                            icon: "error",
+                            button: "OK",
+                        });
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+</body>
+
+</html>
